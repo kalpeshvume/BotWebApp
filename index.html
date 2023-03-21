@@ -11,42 +11,60 @@
     <meta name="robots" content="noindex,nofollow" />
     <title>Telecasino</title>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
-    <button id="main_btn" onclick="DemoApp.sendMessage('');">Send «Hello, World!»</button>
+    <button id="main_btn" onclick="DemoApp.sendMessage('');">Check « Casino! » Games</button>
+    <ul>
+        <li>Impact: <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('heavy');">heavy</a>, &nbsp;</li>
+    </ul>
 
     <script type="application/javascript">
     const DemoApp = {
         sendMessage() {
-        // main.js
 
-    // POST request using fetch()
-    fetch("https://api.telegram.org/bot5606591428:AAHwnirx9dfQoMZXXw1i0qpPWaeqCklsCgk/sendMessage", {
-        
-        // Adding method type
-        method: "POST",
-        
-        // Adding body or contents to send
-        body: JSON.stringify({
 
-            chat_id: 5897881279 ,
-            text: "Hello from webapp"
-        }),
-        
-        // Adding headers to the request
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("X-Application", "xnm2ox7ajlek");
+        myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiJ9eyJ1c2VyIjp7ImlkIjo5MTUsInVzZXJuYW1lIjoiR3Vlc3RyMHVWYW4iLCJzaXRlLWlkIjoxLCJ1dWlkIjoiMjU1ZDhjNDYtODE3OC00ZTc2LTk3YmQtDkyYWQ0ODFkMDk3In0sImV4cCI6MTY3ODM1OTI5MX0.wkuz8mghfxC1x5tlTEZiGru9ZSiz3UjrQbW53zf7gTQ");
+        myHeaders.append("Access-Control-Allow-Origin", null);
 
-    // Converting to JSON
-    .then(response => response.json())
+        var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+        };
 
-    // Displaying results to console
-    .then(json => console.log(json));
+        fetch("https://wd-prod-api.joshgames.in/app/pages?skin_id=6",{ mode: 'no-cors'}, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    
+        // POST request using fetch()
+        fetch("https://api.telegram.org/bot6231764259:AAHRpAsgcreaTbB4NWk8yYDTBjN-EUjwscM/sendMessage", {
+            
+            // Adding method type
+            method: "POST",
+            
+            // Adding body or contents to send
+            body: JSON.stringify({
+
+                chat_id: 5897881279 ,
+                text: "Hello from webapp"
+            }),
+            
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        // Converting to JSON
+        .then(response => response.json())
+
+        // Displaying results to console
+        .then(json => console.log(json));
 
     }
 }
     </script>
 
-    
 </head>
 </html>
